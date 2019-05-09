@@ -204,6 +204,26 @@ $app->group('/user', function () use ($app) {
 
 
 
+        $app->post('/food', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['Foodid'] != "-1") {
+            // trying to edit
+            $book= \FoodinventoryQuery::create()->findOneByFoodid($post['Foodid']);
+        } else { //create new staff
+            $book = new \Foodinventory();
+        }
+        foreach ($post as $key => $value) {
+            // make a new staff user from incoming data
+            if ($key != "Foodid") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('food')]);
+    });
+
+
     $app->get('/needs', function (Request $request, Response $response, array $args) {
 
         $all = \NecessitiesQuery::create()->find();
@@ -213,6 +233,7 @@ $app->group('/user', function () use ($app) {
         ['router'=>$this->router, 'all'=>$all]
         );
     })->setName('needs');
+
 
     $app->delete('/needs/{pnid}/',function($request, $response, $args){
             //check that they are authorized to edit
@@ -226,6 +247,25 @@ $app->group('/user', function () use ($app) {
                           
         })->setName('needs/{pnid}');
 
+
+        $app->post('/needs', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['Necessitiesid'] != "-1") {
+            // trying to edit
+            $book= \NecessitiesQuery::create()->findOneByNecessitiesid($post['Necessitiesid']);
+        } else { //create new staff
+            $book = new \Necessities();
+        }
+        foreach ($post as $key => $value) {
+            // make a new staff user from incoming data
+            if ($key != "Necessitiesid") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('needs')]);
+    });
 
 
     $app->get('/update', function (Request $request, Response $response, array $args) {
@@ -245,40 +285,11 @@ $app->group('/user', function () use ($app) {
     return $next($request, $response);
 });
 
-////////////////// DELETE METHOD
-
-//*$app->post('/delete', function(Request $request, Response $response, $args) {
-   // $data = $request->getParsedBody();
-   // if(!empty($data["id"])) {
-       // try {
-           // $stmt = $this->db->prepare("DELETE FROM person WHERE id_person = :idp");
-          //  $stmt->bindValue(":idp", $data["id_person"]);
-         //   $stmt->execute();
-        //    echo "PERSON DELETED";
-       // } catch(PDOException $e) {
-      //      exit($e->getMessage());
-     //   }
-    //} else {
-   //     exit('Specify ID of person to delete.');
-  //  }
-//})->setName('delete');
-
-
-//$app->post('/delete', function(Request $request, Response $response, $args) {
- //   $id = $_POST['delete_id'];
-  //  $query = "delete from TABLE NAME where ID = $id";
-//})->setName('delete');
 
 
 
 
-//$app->post('../delete/{pnid}', function(Request $request, Response $response)   {
 
-  //$id = $request->getParam('id');
-
- // $sql = "DELETE  FROM test WHERE id=:id";
-
-//});
 
 
 $app->run();

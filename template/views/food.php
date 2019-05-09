@@ -129,7 +129,20 @@
 					<br><a href="<?=$router->pathFor('sign_out')?>">( Sign out )</a>
 				</div>
 			</nav>
-
+				<div class="container">
+			<h5>ADD AND UPDATE FOOD</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Foodid" value="-1">
+				<p>ITEM NAME:</p>
+				<input type="text" name="Name" value="">
+				<br><br>
+				<p>QUANTITY</P>
+				 <input  type="text" name="Quantity" value="" >
+				<br>
+				<button type="submit">GO</button>
+			</form>
+			<br>
+			</div>
 
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
@@ -155,12 +168,16 @@
 							<td><?=$al->getQuantity()?></td>
 							
 								<td>
+<<<<<<< HEAD
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
 						        <button type="button" class="delete_data" id="<?=$al->getFoodid()?>">
 						          Delete 
 						        </button>
+=======
+								<button  class="btn btn-primary edit-btn2">Edit</button>
+>>>>>>> 2b84c1a4ab8b69f09fa569159e6b6aaa85fef5de
 							</td>
 							
 						
@@ -178,4 +195,7 @@
 	</div>
 
 		</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/global.js"></script>
+<script src="../js/food.js"></script>
 		</html>

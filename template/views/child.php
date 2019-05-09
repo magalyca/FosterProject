@@ -117,7 +117,7 @@
 
 							
 							<li class="nav-item">
-								<a class="nav-link" >
+								<a class="nav-link" href="<?=$router->pathFor('update')?>">
 									<span data-feather="file-text"></span>
 									Users Update
 								</a>
@@ -130,7 +130,56 @@
 				</div>
 			</nav>
 
-
+			<div class="container">
+			<h5>EDIT CHILD INFO</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Childid" value="-1">
+				<p>FIRST NAME:</p>
+				<input type="text" name="Firstname" value="">
+				<br><br>
+				<p>LAST NAME:</P>
+				 <input  type="text" name="Lastname" value="" >
+				<br>
+				<p>DOB:</p>
+				<input  type="text" name="Dateofbirth" value="" >
+				<br>
+				<p>AGE:</P>
+				<input  type="text" name="Age" value="" >
+				<br>
+				<p>GENDER:</P>
+				 <input  type="text" name="Gender" value="" >
+				<br>
+				<p>ROOM NUMBER:</P>
+				<input  type="text" name="Roomnumber" value="" >
+				<br>
+				<p>ADOPTED:</P>
+				<input  type="text" name="Adopted" value="" >
+				<br>
+				<p>STAFF:</P>
+				<input  type="text" name="Staffid" value="" >
+				<br>
+				<p>DATE ENTERED THE SYSTEM:</P>
+				<input  type="text" name="Dateentered" value="" >
+				<br>
+				<p>EMERGENCY CONTACT:</P>
+				<input  type="text" name="Emergencycontact" value="" >
+				<br>
+				<input  type="hidden" name="Medicalrecordid" value="" >
+				<br>
+				<input  type="hidden" name="Personaldocid" value="" >
+				<p>HEIGHT:</P>
+				<input  type="text" name="Height" value="" >
+				<br>
+				<p>WEIGHT:</P>
+				<input  type="text" name="Weight" value="" >
+				<br>
+				<input  type="hidden" name="Bioparentid" value="" >
+				<input  type="hidden" name="Newparentid" value="" >
+				<br>
+				<button type="submit" name="button">GO</button>
+			</form>
+			<br>
+			</div>
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
 				
@@ -148,12 +197,13 @@
 								<th>Age</th>
 								<th>Gender</th>
 								<th>Room #</th>
-								<th>Date entered</th>
 								<th>Adopted </th>
+								<th>Staff assigned</th>
+								<th>Date entered</th>
 								<th>Emergency contact</th>
 								<th>Height</th>
 								<th>Weight</th>
-								<th>Staff assigned</th>
+								
 								
 							</tr>
 						</thead>
@@ -171,24 +221,29 @@
 							<td><?=$al->getAge()?></td>
 							<td><?=$al->getGender()?></td>
 							<td><?=$al->getRoomnumber()?></td>
-							<td><?=$al->getDateentered()?></td>
 							<td><?=$al->getAdopted()?></td>
+							<td><?=$staff->getFirstname()?></td>
+							<td><?=$al->getDateentered()?></td>
 							<td><?=$al->getEmergencycontact()?></td>
 							<td><?=$al->getHeight()?></td>
 							<td><?=$al->getWeight()?></td>
+							
 
-
-							<td><?=$staff->getFirstname()?></td>
+							
 							
 
 							
 								<td>
+
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
 						        <button type="button" class="btn btn-default btn-sm">
 						          Delete 
 						        </button>
+
+								<button  class="btn btn-primary edit-btn">Edit</button>
+
 							</td>
 							
 						
@@ -206,4 +261,7 @@
 	</div>
 
 		</body>
+<script src="../js/jquery.min.js"></script>
+  <script src="../js/global.js"></script>
+   <script src="../js/child.js"></script>
 		</html>

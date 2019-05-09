@@ -127,21 +127,21 @@
 			<div class="container">
 			<h5>ADD A NEW USER ACCOUNT FOR STAFF</h5>
 			<form action="" method="post" id="new-item">
-				<input type="hidden" name="Id" value="-1">
-				<p>NAME:</p>
-				<input type="text" name="Name" value="">
+				<input type="hidden" name="Staffid" value="-1">
+				<p>FIRST NAME:</p>
+				<input type="text" name="Firstname" value="">
 				<br><br>
-				<p>PRICE:</P>
-				 <input  type="text" name="Price" value="" >
+				<p>LAST NAME:</P>
+				 <input  type="text" name="Lastname" value="" >
 				<br>
-				<p>DESCRIPTION:</p>
-				<textarea name="Description" rows="5" cols="60"></textarea>
+				<p>POSITION:</p>
+				<input  type="text" name="Position" value="" >
 				<br>
-				<p>CATEGORY ID:</P>
-				<input  type="text" name="CategoryId" value="" >
+				<p>EMAIL:</P>
+				<input  type="text" name="Email" value="" >
 				<br>
-				<p>STOCK NUMBER:</P>
-				 <input  type="text" name="Stock" value="" >
+				<p>PASSWORD:</P>
+				 <input  type="text" name="Password" value="" >
 				<br>
 				<button type="submit" name="button">GO</button>
 			</form>
@@ -152,43 +152,51 @@
 				
 
 
-				<h4>Foster Home Necessities Item List</h4>
+				<h4>ADD OR UPDATE STAFF</h4>
 				<div class="table-responsive">
 					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
-								<th>Necessities Id</th>
-								<th>Item Name</th>
-								<th>Quantity</th>
+								<th>Staff Id</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Position</th>
+								<th>Email</th>
+								<th>Password</th>
 		
 							</tr>
 						</thead>
 
 						<?php foreach ($all as $al) { ?>
 						<tr>
-							<td><?=$al->getNecessitiesId()?></td>
-							<td><?=$al->getItemName()?></td>
-							<td><?=$al->getQuantity()?></td>
+							<td><?=$al->getStaffId()?></td>
+							<td><?=$al->getFirstName()?></td>
+							<td><?=$al->getLastName()?></td>
+							<td><?=$al->getPosition()?></td>
+							<td><?=$al->getEmail()?></td>
+							<td><?=$al->getPassword()?></td>
 							
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn">Edit</button>
 							</td>
 							
 						
 						</tr>
+						
 						<?php } ?>
-
 					</table>
+
 				</div>
 				
 
 			</main>
 
-		</div>
 
-	</div>
+
+	
 
 		</body>
+<script src="../js/jquery.min.js"></script>
+  <script src="../js/global.js"></script>
+   <script src="../js/admin.js"></script>
 		</html>

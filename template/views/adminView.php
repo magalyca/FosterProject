@@ -115,7 +115,7 @@
 
 							
 							<li class="nav-item">
-								<a class="nav-link" >
+								<a class="nav-link" href="<?=$router->pathFor('update')?>">
 									<span data-feather="file-text"></span>
 									Users Update
 								</a>
@@ -160,6 +160,7 @@
 							<td><?=$al->getEmail()?></td>
 							<td><?=$al->getPassword()?></td>
 							
+
 								<td>
 								<button  class="btn btn-primary edit-btn">Edit</button>
 								<button type="button" class="btn btn-default btn-sm">
@@ -167,7 +168,7 @@
 						        </button>
 							</td>
 							
-							
+						
 						
 						</tr>
 						<?php } ?>
@@ -181,6 +182,5 @@
 		</div>
 
 	</div>
-
 		</body>
 		</html>

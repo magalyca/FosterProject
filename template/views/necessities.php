@@ -10,6 +10,15 @@
 
 
 	<link href="../album.css" rel="stylesheet">
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+	<script src="../js/delete.js"></script>
+	
+	<script>
+				var baseurl = "{{base_url()}}"
+	</script>
 </head>
 
 
@@ -117,7 +126,7 @@
 
 							
 							<li class="nav-item">
-								<a class="nav-link" >
+								<a class="nav-link" href="<?=$router->pathFor('update')?>">
 									<span data-feather="file-text"></span>
 									Users Update
 								</a>
@@ -150,15 +159,15 @@
 
 						<?php foreach ($all as $al) { ?>
 						<tr>
-							<td><?=$al->getNecessitiesId()?></td>
-							<td><?=$al->getItemName()?></td>
+							<td><?=$al->getNecessitiesid()?></td>
+							<td><?=$al->getItemname()?></td>
 							<td><?=$al->getQuantity()?></td>
 							
 								<td>
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
-						        <button type="button" class="btn btn-default btn-sm">
+						        <button type="button" class="delete_data" id="<?=$al->getNecessitiesid()?>">
 						          Delete 
 						        </button>
 							</td>
@@ -178,4 +187,6 @@
 	</div>
 
 		</body>
+		
+		<script src="../js/delete.js"></script>
 		</html>

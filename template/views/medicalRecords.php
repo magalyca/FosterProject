@@ -117,7 +117,7 @@
 
 							
 							<li class="nav-item">
-								<a class="nav-link" >
+								<a class="nav-link" href="<?=$router->pathFor('update')?>">
 									<span data-feather="file-text"></span>
 									Users Update
 								</a>
@@ -129,6 +129,27 @@
 					<br><a href="<?=$router->pathFor('sign_out')?>">( Sign out )</a>
 				</div>
 			</nav>
+
+			<div class="container">
+			<h5>MEDICAL RECORDS UPDATE</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Medrecordid" value="-1">
+				<p>CHILD NAME:</p>
+				<input type="text" name="Childid" value="">
+				<br><br>
+				<p>RECORD TYPE;</P>
+				 <input  type="text" name="Recordtype" value="" >
+				<br>
+				<p>DESCRIPTION:</p>
+				<input  type="text" name="Description" value="" >
+				<br>
+				<p>DATE ENTERED:</P>
+				<input  type="text" name="Dateentered" value="" >
+				<br>
+				<button type="submit" name="button">GO</button>
+			</form>
+			<br>
+			</div>
 
 
 
@@ -168,12 +189,13 @@
 
 							
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn2">Edit</button>
+								
 						        <button type="button" class="btn btn-default btn-sm">
 						          Delete
 						        </button>
+								
+
 							</td>
 							
 						
@@ -191,4 +213,7 @@
 	</div>
 
 		</body>
+		<script src="../js/jquery.min.js"></script>
+		  <script src="../js/global.js"></script>
+		   <script src="../js/admin.js"></script>
 		</html>

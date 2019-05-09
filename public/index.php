@@ -189,6 +189,21 @@ $app->group('/user', function () use ($app) {
         );
     })->setName('food');
 
+     $app->delete('/food/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \FoodinventoryQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'food.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('food/{pnid}');
+
+
+
+
     $app->get('/needs', function (Request $request, Response $response, array $args) {
 
         $all = \NecessitiesQuery::create()->find();
@@ -198,6 +213,20 @@ $app->group('/user', function () use ($app) {
         ['router'=>$this->router, 'all'=>$all]
         );
     })->setName('needs');
+
+    $app->delete('/needs/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \NecessitiesQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'necessities.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('needs/{pnid}');
+
+
 
     $app->get('/update', function (Request $request, Response $response, array $args) {
 
@@ -215,5 +244,41 @@ $app->group('/user', function () use ($app) {
     }
     return $next($request, $response);
 });
+
+////////////////// DELETE METHOD
+
+//*$app->post('/delete', function(Request $request, Response $response, $args) {
+   // $data = $request->getParsedBody();
+   // if(!empty($data["id"])) {
+       // try {
+           // $stmt = $this->db->prepare("DELETE FROM person WHERE id_person = :idp");
+          //  $stmt->bindValue(":idp", $data["id_person"]);
+         //   $stmt->execute();
+        //    echo "PERSON DELETED";
+       // } catch(PDOException $e) {
+      //      exit($e->getMessage());
+     //   }
+    //} else {
+   //     exit('Specify ID of person to delete.');
+  //  }
+//})->setName('delete');
+
+
+//$app->post('/delete', function(Request $request, Response $response, $args) {
+ //   $id = $_POST['delete_id'];
+  //  $query = "delete from TABLE NAME where ID = $id";
+//})->setName('delete');
+
+
+
+
+//$app->post('../delete/{pnid}', function(Request $request, Response $response)   {
+
+  //$id = $request->getParam('id');
+
+ // $sql = "DELETE  FROM test WHERE id=:id";
+
+//});
+
 
 $app->run();

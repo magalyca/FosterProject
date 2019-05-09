@@ -231,6 +231,26 @@ $app->group('/user', function () use ($app) {
         );
     })->setName('food');
 
+
+        $app->post('/food', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['Foodid'] != "-1") {
+            // trying to edit
+            $book= \FoodinventoryQuery::create()->findOneByFoodid($post['Foodid']);
+        } else { //create new staff
+            $book = new \Foodinventory();
+        }
+        foreach ($post as $key => $value) {
+            // make a new staff user from incoming data
+            if ($key != "Foodid") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('food')]);
+    });
+
     $app->get('/needs', function (Request $request, Response $response, array $args) {
 
         $all = \NecessitiesQuery::create()->find();
@@ -240,6 +260,25 @@ $app->group('/user', function () use ($app) {
         ['router'=>$this->router, 'all'=>$all]
         );
     })->setName('needs');
+
+        $app->post('/needs', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['Necessitiesid'] != "-1") {
+            // trying to edit
+            $book= \NecessitiesQuery::create()->findOneByNecessitiesid($post['Necessitiesid']);
+        } else { //create new staff
+            $book = new \Necessities();
+        }
+        foreach ($post as $key => $value) {
+            // make a new staff user from incoming data
+            if ($key != "Necessitiesid") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('needs')]);
+    });
 
     $app->get('/update', function (Request $request, Response $response, array $args) {
 

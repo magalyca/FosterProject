@@ -27,10 +27,6 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -41,6 +37,12 @@
 			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="<?=$router->pathFor('admin')?>">
+								<span data-feather="home"></span>
+								Staff
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?=$router->pathFor('child')?>">
 								<span data-feather="shopping-cart"></span>
@@ -148,12 +150,13 @@
 						</thead>
 
 					
-						<?php foreach ($all as $al) { ?>
+						<?php foreach ($all as $al) { 
+							$staff = \StaffQuery::create()->findOneByStaffid($al->getStaffid())?>
 						<tr>
-							<td><?=$al->getExpenseType()?></td>
+							<td><?=$al->getExpensetype()?></td>
 							<td><?=$al->getAmount()?></td>
-							<td><?=$al->getDateBought()?></td>
-							<td><?=$al->getStaffId()?></td>
+							<td><?=$al->getDatebought()?></td>
+							<td><?=$staff->getFirstname()?></td>
 	
 								<td>
 								<button  class="btn btn-primary edit-btn">Edit</button>

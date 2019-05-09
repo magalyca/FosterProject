@@ -128,7 +128,29 @@
 				</div>
 			</nav>
 
-
+			<div class="container">
+			<h5>ADD A NEW USER ACCOUNT FOR STAFF</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Id" value="-1">
+				<p>NAME:</p>
+				<input type="text" name="Name" value="">
+				<br><br>
+				<p>PRICE:</P>
+				 <input  type="text" name="Price" value="" >
+				<br>
+				<p>DESCRIPTION:</p>
+				<textarea name="Description" rows="5" cols="60"></textarea>
+				<br>
+				<p>CATEGORY ID:</P>
+				<input  type="text" name="CategoryId" value="" >
+				<br>
+				<p>STOCK NUMBER:</P>
+				 <input  type="text" name="Stock" value="" >
+				<br>
+				<button type="submit" name="button">GO</button>
+			</form>
+			<br>
+			</div>
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
 				

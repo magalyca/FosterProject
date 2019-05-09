@@ -27,10 +27,6 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -41,6 +37,12 @@
 			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="<?=$router->pathFor('admin')?>">
+								<span data-feather="home"></span>
+								Staff
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?=$router->pathFor('child')?>">
 								<span data-feather="shopping-cart"></span>
@@ -140,7 +142,7 @@
 						<thead>
 							<tr>
 								<th>Document Id</th>
-								<th>Child Id</th>
+								<th>Children Name</th>
 								<th>Document Type</th>
 								<th>Description</th>
 								<th>Date Entered</th>
@@ -149,14 +151,16 @@
 							</tr>
 						</thead>
 
-						<?php foreach ($all as $al) { ?>
+						<?php foreach ($all as $al) { 
+							$doc = \ChildQuery::create()->findOneByChildid($al->getChildid())?>
 						<tr>
-							<td><?=$al->getDocumentId()?></td>
-							<td><?=$al->getChilldId()?></td>
-							
-							<td><?=$al->getDocType()?></td>
+							<td><?=$al->getDocumentid()?></td>
+
+												
+							<td><?=$doc->getFirstname()?> <?=$doc->getLastname() ?></td>
+							<td><?=$al->getDoctype()?></td>
 							<td><?=$al->getDescription()?></td>
-							<td><?=$al->getDateEntered()?></td>
+							<td><?=$al->getDateentered()?></td>
 							
 
 							

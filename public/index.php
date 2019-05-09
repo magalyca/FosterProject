@@ -171,7 +171,7 @@ $app->group('/user', function () use ($app) {
 
     $app->get('/room', function (Request $request, Response $response, array $args) {
 
-        $all = \RoomQuery::create()->find();
+        $all = \RoomsQuery::create()->find();
         return $this->view->render(
         $response,
         'rooms.php',

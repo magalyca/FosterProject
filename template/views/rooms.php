@@ -27,10 +27,6 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -41,6 +37,12 @@
 			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="<?=$router->pathFor('admin')?>">
+								<span data-feather="home"></span>
+								Staff
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?=$router->pathFor('child')?>">
 								<span data-feather="shopping-cart"></span>
@@ -142,21 +144,24 @@
 								<th>Room Id</th>
 								<th>Building</th>
 								<th>Floor Number</th>
+								<th>Room #</th>
 								<th>Capacity</th>
-								<th>Staff</th>
-								<th>Child Id</th>
+								<th>Child Name</th>
 		
 							</tr>
 						</thead>
 
-						<?php foreach ($all as $al) { ?>
+						<?php foreach ($all as $al) { 
+							$child= \ChildQuery::create()->findOneByChildid($al->getChildid())?>
 						<tr>
-							<td><?=$al->getRoomId()?></td>
+							<td><?=$al->getRoomid()?></td>
 							<td><?=$al->getBuilding()?></td>
-							<td><?=$al->getFloorNum()?></td>
+							<td><?=$al->getFloor()?></td>
+							<td><?=$al->getRoomnum()?></td>
 							<td><?=$al->getCapacity()?></td>
-							<td><?=$al->getStaffId()?></td>
-							<td><?=$al->getChildId()?></td>
+
+							
+							<td><?=$child->getFirstname()?> <?=$child->getLastname() ?></td>
 								<td>
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 

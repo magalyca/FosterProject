@@ -27,10 +27,6 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -41,6 +37,12 @@
 			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="<?=$router->pathFor('admin')?>">
+								<span data-feather="home"></span>
+								Staff
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?=$router->pathFor('child')?>">
 								<span data-feather="shopping-cart"></span>
@@ -142,15 +144,15 @@
 								<th>New Parent Id</th>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>Child Id</th>
+								<th>Child Name</th>
 								<th>Telephone</th>
 								<th>Email</th>
 								<th>Address</th>
 								<th>Date Applied</th>
 								<th>Biological Child</th>
-								<th>Staff</th>
 								<th>Gender</th>
 								<th>Age</th>
+								<th>Staff Assigned</th>
 								
 								
 								
@@ -158,20 +160,25 @@
 							</tr>
 						</thead>
 
-						<?php foreach ($all as $al) { ?>
+						<?php foreach ($all as $al) { 
+							$staff1 = \StaffQuery::create()->findOneByStaffid($al->getStaffid());
+							$child1 = \ChildQuery::create()->findOneByChildid($al->getChildid())
+							?>
 						<tr>
-							<td><?=$al->getNewParentId()?></td>
-							<td><?=$al->getFirstName()?></td>
-							<td><?=$al->getLastName()?></td>
-							<td><?=$al->getChildId()?></td>
+							<td><?=$al->getNewparentid()?></td>
+							<td><?=$al->getFirstname()?></td>
+							<td><?=$al->getLastname()?></td>
+
+							<td><?=$child1->getFirstname()?> <?=$child1->getLastname() ?></td>
+
 							<td><?=$al->getTelephone()?></td>
 							<td><?=$al->getEmail()?></td>
 							<td><?=$al->getAddress()?></td>
-							<td><?=$al->getDateApplied()?></td>
-							<td><?=$al->getBiologicalChild()?></td>
-							<td><?=$al->getStaffId()?></td>
+							<td><?=$al->getDateapplied()?></td>
+							<td><?=$al->getBiologicalchild()?></td>
 							<td><?=$al->getGender()?></td>
 							<td><?=$al->getAge()?></td>
+							<td><?=$staff1->getFirstname()?></td>
 
 								<td>
 								<button type="button" class="btn btn-default btn-sm">

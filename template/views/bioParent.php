@@ -27,10 +27,7 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    
   </div>
 </nav>
 
@@ -41,6 +38,12 @@
 			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="<?=$router->pathFor('admin')?>">
+								<span data-feather="home"></span>
+								Staff
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?=$router->pathFor('child')?>">
 								<span data-feather="shopping-cart"></span>
@@ -140,10 +143,10 @@
 						<thead>
 							<tr>
 								<th>Biological Parent Id</th>
+								<th>Child Name</th>
 								<th>First Name</th>
 								<th>Last Name</th>
 								<th>Gender</th>
-								<th>Child Id</th>
 								<th>Status</th>
 								<th>Description</th>
 								
@@ -152,14 +155,16 @@
 							</tr>
 						</thead>
 
-						<?php foreach ($all as $al) { ?>
+						<?php foreach ($all as $al) { 
+							$bio = \ChildQuery::create()->findOneByChildid($al->getChildname())?>
 						<tr>
-							<td><?=$al->getBioParentId()?></td>
-							<td><?=$al->getFirstName()?></td>
+							<td><?=$al->getBioParentid()?></td>
 							
-							<td><?=$al->getLastName()?></td>
+							<td><?=$bio->getFirstname()?> <?=$bio->getLastname() ?></td>
+
+							<td><?=$al->getFirstname()?></td>
+							<td><?=$al->getLastname()?></td>
 							<td><?=$al->getGender()?></td>
-							<td><?=$al->getChildId()?></td>
 							<td><?=$al->getAlive()?></td>
 							<td><?=$al->getDescription()?></td>
 							

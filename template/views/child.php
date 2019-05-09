@@ -27,10 +27,6 @@
       </li>
       
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -42,7 +38,13 @@
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
 						<li class="nav-item">
-							<a class="nav-link active" >
+							<a class="nav-link" href="<?=$router->pathFor('admin')?>">
+								<span data-feather="home"></span>
+								Staff
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="<?=$router->pathFor('child')?>">
 								<span data-feather="shopping-cart"></span>
 								Children 
 							</a>
@@ -139,40 +141,45 @@
 					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
-								<th>Child Id</th>
+								<th>Child id</th>
 								<th>First Name</th>
 								<th>Last Name</th>
-								<th>DOB</th>
+								<th>Date of Birth</th>
 								<th>Age</th>
 								<th>Gender</th>
-								<th>Room Id</th>
-								<th>Adopted</th>
-								<th>Staff</th>
-								<th>Emergency Contact</th>
-								<th>Medical Record</th>
-								<th>Personal Doc</th>
+								<th>Room #</th>
+								<th>Date entered</th>
+								<th>Adopted </th>
+								<th>Emergency contact</th>
 								<th>Height</th>
 								<th>Weight</th>
+								<th>Staff assigned</th>
 								
 							</tr>
 						</thead>
 
-						<?php foreach ($all as $al) { ?>
+						<?php foreach ($all as $al) { 
+
+						$staff = \StaffQuery::create()->findOneByStaffid($al->getStaffid())?>
+
+
 						<tr>
-							<td><?=$al->getChildId()?></td>
-							<td><?=$al->getFirstName()?></td>
-							
-							<td><?=$al->getLastName()?></td>
-							<td><?=$al->getDateOfBirth()?></td>
+							<td><?=$al->getChildid()?></td>
+							<td><?=$al->getFirstname()?></td>
+							<td><?=$al->getLastname()?></td>
+							<td><?=$al->getDateofbirth()?></td>
 							<td><?=$al->getAge()?></td>
 							<td><?=$al->getGender()?></td>
-							<td><?=$al->getRoomId()?></td>
-							<td><?=$al->getStaffId()?></td>
-							<td><?=$al->getEmergencyContact()?></td>
-							<td><?=$al->getMedicalRecord()?></td>
-							<td><?=$al->getPersonalDocId()?></td>
+							<td><?=$al->getRoomnumber()?></td>
+							<td><?=$al->getDateentered()?></td>
+							<td><?=$al->getAdopted()?></td>
+							<td><?=$al->getEmergencycontact()?></td>
 							<td><?=$al->getHeight()?></td>
-							<td><?=$al->getWeiht()?></td>
+							<td><?=$al->getWeight()?></td>
+
+
+							<td><?=$staff->getFirstname()?></td>
+							
 
 							
 								<td>

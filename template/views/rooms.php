@@ -163,12 +163,14 @@
 							
 							<td><?=$child->getFirstname()?> <?=$child->getLastname() ?></td>
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+
+						        
+								<button  class="btn btn-primary edit-btn">Edit</button>
 						        <button type="button" class="delete_data" id="<?=$al->getRoomid()?>">
-						          Delete 
+								Delete 
 						        </button>
+
+						          
 							</td>
 							
 						

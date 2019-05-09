@@ -15,7 +15,7 @@ $(function() {
     form= $('#new-item');
     form.find("input[name='Itemname']").val(c.eq(1).text());
     form.find("input[name='Quantity']").val(c.eq(2).text());
-    form.find("input[name='Necessitesid']").val(c.eq(0).text());
+    form.find("input[name='Necessitiesid']").val(c.eq(0).text());
   })
 
 });

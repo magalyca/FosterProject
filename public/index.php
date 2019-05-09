@@ -101,6 +101,25 @@ $app->group('/user', function () use ($app) {
         ['router'=>$this->router,'all'=>$all]
         );
     })->setName('child');
+
+     $app->post('/child', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['Childid'] != "-1") {
+            // trying to edit
+            $book= \ChildQuery::create()->findOneByChildId($post['Childid']);
+        } else { //create new staff
+            $book = new \Child();
+        }
+        foreach ($post as $key => $value) {
+            // make a new staff user from incoming data
+            if ($key != "Childid") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('child')]);
+    });
      
 
      $app->get('/staff', function (Request $request, Response $response, array $args) {
@@ -215,15 +234,15 @@ $app->group('/user', function () use ($app) {
 
       $app->post('/update', function (Request $request, Response $response, array $args) {
         $post = $request->getParsedBody();
-        if ($post['StaffId'] != "-1") {
+        if ($post['Staffid'] != "-1") {
             // trying to edit
-            $book= \StaffQuery::create()->findOneByStaffId($post['StaffId']);
+            $book= \StaffQuery::create()->findOneByStaffId($post['Staffid']);
         } else { //create new staff
             $book = new \Staff();
         }
         foreach ($post as $key => $value) {
-            // make a new book from incoming data
-            if ($key != "StaffId") {
+            // make a new staff user from incoming data
+            if ($key != "Staffid") {
                 $book->setByName($key, $value);
             }
         }

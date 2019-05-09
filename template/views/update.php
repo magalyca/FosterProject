@@ -127,7 +127,7 @@
 			<div class="container">
 			<h5>ADD A NEW USER ACCOUNT FOR STAFF</h5>
 			<form action="" method="post" id="new-item">
-				<input type="hidden" name="StaffId" value="-1">
+				<input type="hidden" name="Staffid" value="-1">
 				<p>FIRST NAME:</p>
 				<input type="text" name="Firstname" value="">
 				<br><br>
@@ -143,7 +143,7 @@
 				<p>PASSWORD:</P>
 				 <input  type="text" name="Password" value="" >
 				<br>
-				<button type="submit" >GO</button>
+				<button type="submit" name="button">GO</button>
 			</form>
 			<br>
 			</div>
@@ -177,24 +177,26 @@
 							<td><?=$al->getPassword()?></td>
 							
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn">Edit</button>
 							</td>
 							
 						
 						</tr>
+						
 						<?php } ?>
-
 					</table>
+
 				</div>
 				
 
 			</main>
 
-		</div>
 
-	</div>
+
+	
 
 		</body>
+<script src="../js/jquery.min.js"></script>
+  <script src="../js/global.js"></script>
+   <script src="../js/admin.js"></script>
 		</html>

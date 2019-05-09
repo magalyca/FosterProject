@@ -166,7 +166,7 @@
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
-						        <button type="button" class="btn btn-default btn-sm">
+						        <button type="button" class="delete_data" id="<?=$al->getRoomid()?>">
 						          Delete 
 						        </button>
 							</td>
@@ -186,4 +186,7 @@
 	</div>
 
 		</body>
+
+		<script src="../js/room.js"></script>
+
 		</html>

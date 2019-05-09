@@ -174,8 +174,8 @@
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
-						        <button type="button" class="btn btn-default btn-sm">
-						          Delete
+						        <button type="button" class="delete_data" id="<?=$al->getBioParentid()?>">
+						          Delete 
 						        </button>
 
 							</td>
@@ -195,4 +195,6 @@
 	</div>
 
 		</body>
+		<script src="../js/biological.js"></script>
+
 		</html>

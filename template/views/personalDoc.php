@@ -168,8 +168,8 @@
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
-						        <button type="button" class="btn btn-default btn-sm">
-						          Delete
+						        <button type="button" class="delete_data" id="<?=$al->getDocumentid()?>">
+						          Delete 
 						        </button>
 							</td>
 							
@@ -188,4 +188,6 @@
 	</div>
 
 		</body>
+		<script src="../js/personal.js"></script>
+
 		</html>

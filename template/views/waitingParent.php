@@ -180,7 +180,7 @@
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
-						        <button type="button" class="btn btn-default btn-sm">
+						        <button type="button" class="delete_data" id="<?=$al->getWaitingparentid()?>">
 						          Delete 
 						        </button>
 							</td>
@@ -200,4 +200,6 @@
 	</div>
 
 		</body>
+		<script src="../js/waitparent.js"></script>
+
 		</html>

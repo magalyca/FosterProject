@@ -191,8 +191,8 @@
 								<td>
 								<button  class="btn btn-primary edit-btn2">Edit</button>
 								
-						        <button type="button" class="btn btn-default btn-sm">
-						          Delete
+						       <button type="button" class="delete_data" id="<?=$al->getMedrecordid()?>">
+						          Delete 
 						        </button>
 								
 
@@ -216,4 +216,6 @@
 		<script src="../js/jquery.min.js"></script>
 		  <script src="../js/global.js"></script>
 		   <script src="../js/admin.js"></script>
+		   <script src="../js/medrecords.js"></script>
+
 		</html>

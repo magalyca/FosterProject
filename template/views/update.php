@@ -178,6 +178,9 @@
 							
 								<td>
 								<button  class="btn btn-primary edit-btn">Edit</button>
+								<button type="button" class="delete_data" id="<?=$al->getStaffId()?>">
+						          Delete 
+						        </button>
 							</td>
 							
 						
@@ -199,4 +202,6 @@
 <script src="../js/jquery.min.js"></script>
   <script src="../js/global.js"></script>
    <script src="../js/admin.js"></script>
+   <script src="../js/update.js"></script>
+
 		</html>

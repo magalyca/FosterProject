@@ -184,7 +184,7 @@
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
-						        <button type="button" class="btn btn-default btn-sm">
+						        <button type="button" class="delete_data" id="<?=$al->getNewparentid()?>">
 						          Delete 
 						        </button>
 							</td>
@@ -204,4 +204,6 @@
 	</div>
 
 		</body>
+		<script src="../js/newparent.js"></script>
+
 		</html>

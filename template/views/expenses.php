@@ -160,9 +160,6 @@
 	
 								<td>
 								<button  class="btn btn-primary edit-btn">Edit</button>
-								<button type="button" class="btn btn-default btn-sm">
-						          Delete 
-						        </button>
 								
 							</td>
 							
@@ -181,4 +178,6 @@
 	</div>
 
 		</body>
+		<script src="../js/expenses.js"></script>
+
 		</html>

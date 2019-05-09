@@ -197,6 +197,6 @@
 
 		</body>
 <script src="../js/jquery.min.js"></script>
-  <script src="../js/global.js"></script>
-   <script src="../js/admin.js"></script>
+<script src="../js/global.js"></script>
+<script src="../js/admin.js"></script>
 		</html>

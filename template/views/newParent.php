@@ -181,9 +181,7 @@
 							<td><?=$staff1->getFirstname()?></td>
 
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn">Edit</button>
 						        <button type="button" class="btn btn-default btn-sm">
 						          Delete 
 						        </button>

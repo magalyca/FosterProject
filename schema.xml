@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database name="default" defaultIdMethod="native" defaultPhpNamingMethod="underscore">
+  <table name="admin" idMethod="native" phpName="Admin">
+    <column name="id" phpName="Id" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstName" phpName="Firstname" type="VARCHAR" size="32" required="true"/>
+    <column name="lastName" phpName="Lastname" type="VARCHAR" size="32" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="64" required="true"/>
+    <column name="password" phpName="Password" type="VARCHAR" size="64" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="biologicalparent" idMethod="native" phpName="Biologicalparent">
+    <column name="bioParentId" phpName="Bioparentid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstName" phpName="Firstname" type="VARCHAR" size="32" required="true"/>
+    <column name="lastName" phpName="Lastname" type="VARCHAR" size="32" required="true"/>
+    <column name="gender" phpName="Gender" type="VARCHAR" size="28" required="true"/>
+    <column name="childName" phpName="Childname" type="INTEGER" required="true"/>
+    <column name="alive" phpName="Alive" type="VARCHAR" size="24" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="400" required="true"/>
+    <foreign-key foreignTable="child" name="childid5">
+      <reference local="childName" foreign="childId"/>
+    </foreign-key>
+    <index name="childid5">
+      <index-column name="childName"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="child" idMethod="native" phpName="Child">
+    <column name="childId" phpName="Childid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstName" phpName="Firstname" type="VARCHAR" size="32" required="true"/>
+    <column name="lastName" phpName="Lastname" type="VARCHAR" size="32" required="true"/>
+    <column name="dateOfBirth" phpName="Dateofbirth" type="VARCHAR" size="64" required="true"/>
+    <column name="age" phpName="Age" type="INTEGER" required="true"/>
+    <column name="gender" phpName="Gender" type="VARCHAR" size="16" required="true"/>
+    <column name="roomNumber" phpName="Roomnumber" type="INTEGER" required="true"/>
+    <column name="adopted" phpName="Adopted" type="VARCHAR" size="16" required="true"/>
+    <column name="staffId" phpName="Staffid" type="INTEGER" required="true"/>
+    <column name="dateEntered" phpName="Dateentered" type="VARCHAR" size="64" required="true"/>
+    <column name="emergencyContact" phpName="Emergencycontact" type="VARCHAR" size="32" required="true"/>
+    <column name="medicalRecordId" phpName="Medicalrecordid" type="INTEGER" required="true"/>
+    <column name="personalDocId" phpName="Personaldocid" type="INTEGER" required="true"/>
+    <column name="height" phpName="Height" type="INTEGER" required="true"/>
+    <column name="weight" phpName="Weight" type="INTEGER" required="true"/>
+    <column name="bioParentId" phpName="Bioparentid" type="INTEGER" required="true"/>
+    <column name="newParentId" phpName="Newparentid" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="staff" name="Staffif">
+      <reference local="staffId" foreign="staffId"/>
+    </foreign-key>
+    <index name="StaffID">
+      <index-column name="staffId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="expenses" idMethod="native" phpName="Expenses">
+    <column name="expenseType" phpName="Expensetype" type="VARCHAR" size="32" required="true"/>
+    <column name="amount" phpName="Amount" type="INTEGER" required="true"/>
+    <column name="dateBought" phpName="Datebought" type="VARCHAR" size="128" required="true"/>
+    <column name="staffId" phpName="Staffid" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="staff" name="staffid2">
+      <reference local="staffId" foreign="staffId"/>
+    </foreign-key>
+    <index name="staffid2">
+      <index-column name="staffId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="foodinventory" idMethod="native" phpName="Foodinventory">
+    <column name="foodId" phpName="Foodid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="name" phpName="Name" type="VARCHAR" size="64" required="true"/>
+    <column name="quantity" phpName="Quantity" type="INTEGER" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="medicalrecord" idMethod="native" phpName="Medicalrecord">
+    <column name="medRecordId" phpName="Medrecordid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="childId" phpName="Childid" type="INTEGER" required="true"/>
+    <column name="recordType" phpName="Recordtype" type="VARCHAR" size="64" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="400" required="true"/>
+    <column name="dateEntered" phpName="Dateentered" type="VARCHAR" size="32" required="true"/>
+    <foreign-key foreignTable="child" name="childid1">
+      <reference local="childId" foreign="childId"/>
+    </foreign-key>
+    <index name="childid1">
+      <index-column name="childId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="necessities" idMethod="native" phpName="Necessities">
+    <column name="necessitiesId" phpName="Necessitiesid" type="INTEGER" primaryKey="true" required="true"/>
+    <column name="itemName" phpName="Itemname" type="VARCHAR" size="64" required="true"/>
+    <column name="quantity" phpName="Quantity" type="INTEGER" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="newparent" idMethod="native" phpName="Newparent">
+    <column name="newParentId" phpName="Newparentid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstName" phpName="Firstname" type="VARCHAR" size="32" required="true"/>
+    <column name="lastName" phpName="Lastname" type="VARCHAR" size="32" required="true"/>
+    <column name="childId" phpName="Childid" type="INTEGER" required="true"/>
+    <column name="telephone" phpName="Telephone" type="VARCHAR" size="32" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="32" required="true"/>
+    <column name="address" phpName="Address" type="VARCHAR" size="128" required="true"/>
+    <column name="dateApplied" phpName="Dateapplied" type="VARCHAR" size="64" required="true"/>
+    <column name="biologicalChild" phpName="Biologicalchild" type="VARCHAR" size="64" required="true"/>
+    <column name="staffId" phpName="Staffid" type="INTEGER" required="true"/>
+    <column name="gender" phpName="Gender" type="VARCHAR" size="16" required="true"/>
+    <column name="age" phpName="Age" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="child" name="childid2">
+      <reference local="childId" foreign="childId"/>
+    </foreign-key>
+    <foreign-key foreignTable="staff" name="staff5">
+      <reference local="staffId" foreign="staffId"/>
+    </foreign-key>
+    <index name="childid2">
+      <index-column name="childId"/>
+    </index>
+    <index name="staff5">
+      <index-column name="staffId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="personaldocument" idMethod="native" phpName="Personaldocument">
+    <column name="documentId" phpName="Documentid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="childId" phpName="Childid" type="INTEGER" required="true"/>
+    <column name="docType" phpName="Doctype" type="VARCHAR" size="64" required="true"/>
+    <column name="description" phpName="Description" type="VARCHAR" size="400" required="true"/>
+    <column name="dateEntered" phpName="Dateentered" type="VARCHAR" size="128" required="true"/>
+    <foreign-key foreignTable="child" name="childid4">
+      <reference local="childId" foreign="childId"/>
+    </foreign-key>
+    <index name="childid4">
+      <index-column name="childId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="rooms" idMethod="native" phpName="Rooms">
+    <column name="roomId" phpName="Roomid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="building" phpName="Building" type="VARCHAR" size="11" required="true"/>
+    <column name="floor" phpName="Floor" type="INTEGER" required="true"/>
+    <column name="roomNum" phpName="Roomnum" type="INTEGER" required="true"/>
+    <column name="capacity" phpName="Capacity" type="INTEGER" required="true"/>
+    <column name="childId" phpName="Childid" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="child" name="ChildID">
+      <reference local="childId" foreign="childId"/>
+    </foreign-key>
+    <index name="ChildID">
+      <index-column name="childId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="staff" idMethod="native" phpName="Staff">
+    <column name="staffId" phpName="Staffid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstName" phpName="Firstname" type="VARCHAR" size="32" required="true"/>
+    <column name="lastName" phpName="Lastname" type="VARCHAR" size="32" required="true"/>
+    <column name="position" phpName="Position" type="VARCHAR" size="64" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="32" required="true"/>
+    <column name="password" phpName="Password" type="VARCHAR" size="32" required="true"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="waitingparent" idMethod="native" phpName="Waitingparent">
+    <column name="waitingParentId" phpName="Waitingparentid" type="INTEGER" primaryKey="true" autoIncrement="true" required="true"/>
+    <column name="firstName" phpName="Firstname" type="VARCHAR" size="32" required="true"/>
+    <column name="lastName" phpName="Lastname" type="VARCHAR" size="32" required="true"/>
+    <column name="telephone" phpName="Telephone" type="VARCHAR" size="32" required="true"/>
+    <column name="email" phpName="Email" type="VARCHAR" size="64" required="true"/>
+    <column name="address" phpName="Address" type="VARCHAR" size="250" required="true"/>
+    <column name="dateApplied" phpName="Dateapplied" type="VARCHAR" size="128" required="true"/>
+    <column name="biologicalChild" phpName="Biologicalchild" type="VARCHAR" size="32" required="true"/>
+    <column name="staffId" phpName="Staffid" type="INTEGER" required="true"/>
+    <column name="gender" phpName="Gender" type="VARCHAR" size="24" required="true"/>
+    <column name="age" phpName="Age" type="INTEGER" required="true"/>
+    <column name="formId" phpName="Formid" type="INTEGER" required="true"/>
+    <foreign-key foreignTable="personaldocument" name="doc1">
+      <reference local="formId" foreign="documentId"/>
+    </foreign-key>
+    <foreign-key foreignTable="staff" name="staff3">
+      <reference local="staffId" foreign="staffId"/>
+    </foreign-key>
+    <index name="doc1">
+      <index-column name="formId"/>
+    </index>
+    <index name="staff3">
+      <index-column name="staffId"/>
+    </index>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+</database>

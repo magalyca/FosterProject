@@ -1,0 +1,17 @@
+{
+	"minimum-stability": "dev",
+
+    "require": {
+        "slim/slim": "^3.0",
+      "rych/phpass": "3.0.*@beta",
+      "propel/propel": "~2.0@dev",
+      "slim/php-view": "^2.2"
+    },
+
+    "autoload": {
+    "classmap": [
+      "models/"
+    ]
+  }
+
+}

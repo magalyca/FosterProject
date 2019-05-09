@@ -184,6 +184,9 @@
 								<button type="button" class="btn btn-default btn-sm">
 						          Edit 
 						        </button>
+						        <button type="button" class="btn btn-default btn-sm">
+						          Delete 
+						        </button>
 							</td>
 							
 						

@@ -130,6 +130,27 @@
 				</div>
 			</nav>
 
+			<div class="container">
+			<h5>MEDICAL RECORDS UPDATE</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Medrecordid" value="-1">
+				<p>CHILD NAME:</p>
+				<input type="text" name="Childid" value="">
+				<br><br>
+				<p>RECORD TYPE;</P>
+				 <input  type="text" name="Recordtype" value="" >
+				<br>
+				<p>DESCRIPTION:</p>
+				<input  type="text" name="Description" value="" >
+				<br>
+				<p>DATE ENTERED:</P>
+				<input  type="text" name="Dateentered" value="" >
+				<br>
+				<button type="submit" name="button">GO</button>
+			</form>
+			<br>
+			</div>
+
 
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
@@ -168,9 +189,7 @@
 
 							
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn2">Edit</button>
 							</td>
 							
 						
@@ -188,4 +207,7 @@
 	</div>
 
 		</body>
+		<script src="../js/jquery.min.js"></script>
+		  <script src="../js/global.js"></script>
+		   <script src="../js/admin.js"></script>
 		</html>

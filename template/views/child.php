@@ -197,12 +197,13 @@
 								<th>Age</th>
 								<th>Gender</th>
 								<th>Room #</th>
-								<th>Date entered</th>
 								<th>Adopted </th>
+								<th>Staff assigned</th>
+								<th>Date entered</th>
 								<th>Emergency contact</th>
 								<th>Height</th>
 								<th>Weight</th>
-								<th>Staff assigned</th>
+								
 								
 							</tr>
 						</thead>
@@ -224,7 +225,6 @@
 							<td><?=$staff->getFirstname()?></td>
 							<td><?=$al->getDateentered()?></td>
 							<td><?=$al->getEmergencycontact()?></td>
-							
 							<td><?=$al->getHeight()?></td>
 							<td><?=$al->getWeight()?></td>
 							

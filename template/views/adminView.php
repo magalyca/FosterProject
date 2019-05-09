@@ -160,10 +160,7 @@
 							<td><?=$al->getEmail()?></td>
 							<td><?=$al->getPassword()?></td>
 							
-								<td>
-								<button  class="btn btn-primary edit-btn">Edit</button>
-							</td>
-							
+															
 						
 						</tr>
 						<?php } ?>
@@ -177,8 +174,5 @@
 		</div>
 
 	</div>
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/global.js"></script>
-   <script src="../js/admin.js"></script>
 		</body>
 		</html>

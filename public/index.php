@@ -142,6 +142,25 @@ $app->group('/user', function () use ($app) {
         );
     })->setName('medRec');
 
+      $app->post('/medRecord', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['Medrecordid'] != "-1") {
+            // trying to edit
+            $book= \MedicalRecordQuery::create()->findOneByMedRecordId($post['Medrecordid']);
+        } else { //create new staff
+            $book = new \Medicalrecord();
+        }
+        foreach ($post as $key => $value) {
+            // make a new staff user from incoming data
+            if ($key != "Medrecordid") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('medrec')]);
+    });
+
      $app->get('/personalDoc', function (Request $request, Response $response, array $args) {
 
         $all = \PersonaldocumentQuery::create()->find();

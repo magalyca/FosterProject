@@ -100,7 +100,7 @@
 
 							
 							<li class="nav-item">
-								<a class="nav-link" >
+								<a class="nav-link" href="<?=$router->pathFor('update')?>">
 									<span data-feather="file-text"></span>
 									Users Update
 								</a>
@@ -162,6 +162,8 @@
 		</div>
 
 	</div>
-
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/global.js"></script>
+   <script src="../js/admin.js"></script>
 		</body>
 		</html>

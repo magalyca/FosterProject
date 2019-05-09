@@ -115,7 +115,7 @@
 
 							
 							<li class="nav-item">
-								<a class="nav-link" >
+								<a class="nav-link" href="<?=$router->pathFor('update')?>" >
 									<span data-feather="file-text"></span>
 									Users Update
 								</a>

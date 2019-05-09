@@ -80,14 +80,18 @@ $app->group('', function () use ($app) {
 //sign in
 $app->group('/user', function () use ($app) {
     $app->get('/admin', function (Request $request, Response $response, array $args) {
-
+   
         $all = \StaffQuery::create()->find();
-    	return $this->view->render(
+    	
+        return $this->view->render(
         $response,
         'adminView.php',
         ['router'=>$this->router, 'all'=>$all]
         );
     })->setName('admin');
+
+      // create new item
+  
 
      $app->get('/child', function (Request $request, Response $response, array $args) {
     $all = \ChildQuery::create()->find();
@@ -208,6 +212,25 @@ $app->group('/user', function () use ($app) {
         ['router'=>$this->router, 'all'=>$all]
         );
     })->setName('update');
+
+      $app->post('/update', function (Request $request, Response $response, array $args) {
+        $post = $request->getParsedBody();
+        if ($post['StaffId'] != "-1") {
+            // trying to edit
+            $book= \StaffQuery::create()->findOneByStaffId($post['StaffId']);
+        } else { //create new staff
+            $book = new \Staff();
+        }
+        foreach ($post as $key => $value) {
+            // make a new book from incoming data
+            if ($key != "StaffId") {
+                $book->setByName($key, $value);
+            }
+        }
+        $book->save();
+
+        return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('update')]);
+    });
 
 })->add(function ($request, $response, $next) {
     if (currentUser() == null) {

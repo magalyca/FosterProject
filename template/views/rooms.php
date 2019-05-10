@@ -131,6 +131,31 @@
 			</nav>
 
 
+			<div align="center" class="container">
+				<h5>ADD AND UPDATE ROOM</h5>
+				<form action="" method="post" id="new-item">
+					<input type="hidden" name="Roomid" value="-1">
+					<p>BUILDING:</p>
+					<input type="text" name="Building" value="">
+					<br><br>
+					<p>FLOOR</P>
+					 <input  type="text" name="Floor" value="" >
+					<br>
+					<p>ROOM NUMBER</P>
+					 <input  type="text" name="Roomnum" value="" >
+					<br>
+					<br>
+					<p>CAPACITY</P>
+					 <input  type="text" name="Capacity" value="" >
+					<br>
+					<br>
+					<p>CHILD NAME</P>
+					 <input  type="text" name="Childid" value="" >
+					<br>
+					<button type="submit">GO</button>
+				</form>
+				<br>
+			</div>
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
 				
@@ -188,7 +213,8 @@
 	</div>
 
 		</body>
-
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/global.js"></script>
 		<script src="../js/room.js"></script>
 
 		</html>

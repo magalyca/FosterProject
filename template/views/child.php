@@ -130,7 +130,7 @@
 				</div>
 			</nav>
 
-			<div class="container">
+			<div class="container" align="center">
 			<h5>EDIT CHILD INFO</h5>
 			<form action="" method="post" id="new-item">
 				<input type="hidden" name="Childid" value="-1">

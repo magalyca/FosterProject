@@ -124,7 +124,7 @@
 				</div>
 			</nav>
 
-			<div class="container">
+			<div class="container" align="center">
 			<h5>ADD A NEW USER ACCOUNT FOR STAFF</h5>
 			<form action="" method="post" id="new-item">
 				<input type="hidden" name="Staffid" value="-1">
@@ -200,13 +200,9 @@
 
 		</body>
 <script src="../js/jquery.min.js"></script>
-<<<<<<< HEAD
   <script src="../js/global.js"></script>
    <script src="../js/admin.js"></script>
-   <script src="../js/update.js"></script>
 
-=======
-<script src="../js/global.js"></script>
-<script src="../js/admin.js"></script>
->>>>>>> 2dc34cdf81929019f55f108288e5728aa20a68bd
+
+
 		</html>

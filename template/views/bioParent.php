@@ -131,7 +131,31 @@
 				</div>
 			</nav>
 
-
+			<div class="container" align="center">
+			<h5>BIOLOGICAL PARENT INFO</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Bioparentid" value="-1">
+				<p>FIRST NAME:</p>
+				<input type="text" name="Firstname" value="">
+				<br><br>
+				<p>LAST NAME:</P>
+				 <input  type="text" name="Lastname" value="" >
+				<br>
+				<p>GENDER:</p>
+				<input  type="text" name="Gender" value="" >
+				<br>
+				<p>CHILD NAME:</P>
+				<input  type="text" name="Childname" value="" >
+				<br>
+				<p>ALIVE:</P>
+				 <input  type="text" name="Alive" value="" >
+				<br>
+				<p>DESCRIPTION:</P>
+				 <input  type="text" name="Description" value="" >
+				<button type="submit">GO</button>
+			</form>
+			<br>
+			</div>
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
 				
@@ -160,20 +184,21 @@
 						<tr>
 							<td><?=$al->getBioParentid()?></td>
 							
-							<td><?=$bio->getFirstname()?> <?=$bio->getLastname() ?></td>
+							
 
 							<td><?=$al->getFirstname()?></td>
 							<td><?=$al->getLastname()?></td>
 							<td><?=$al->getGender()?></td>
+							<td><?=$bio->getFirstname()?> <?=$bio->getLastname() ?></td>
 							<td><?=$al->getAlive()?></td>
 							<td><?=$al->getDescription()?></td>
 							
 
 							
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn2">Edit</button>
+						           
+						        
 						        <button type="button" class="delete_data" id="<?=$al->getBioParentid()?>">
 						          Delete 
 						        </button>
@@ -195,6 +220,8 @@
 	</div>
 
 		</body>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/global.js"></script>
 		<script src="../js/biological.js"></script>
 
 		</html>

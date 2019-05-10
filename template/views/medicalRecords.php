@@ -130,7 +130,7 @@
 				</div>
 			</nav>
 
-			<div class="container">
+			<div class="container" align="center">
 			<h5>MEDICAL RECORDS UPDATE</h5>
 			<form action="" method="post" id="new-item">
 				<input type="hidden" name="Medrecordid" value="-1">
@@ -215,7 +215,7 @@
 		</body>
 		<script src="../js/jquery.min.js"></script>
 		  <script src="../js/global.js"></script>
-		   <script src="../js/admin.js"></script>
+		   
 		   <script src="../js/medrecords.js"></script>
 
 		</html>

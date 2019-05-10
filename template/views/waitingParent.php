@@ -130,7 +130,46 @@
 				</div>
 			</nav>
 
-
+			<div class="container" align="center">
+			<h5>NEW PARENT INFO</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Waitingparentid" value="-1">
+				<p>FIRST NAME:</p>
+				<input type="text" name="Firstname" value="">
+				<br><br>
+				<p>LAST NAME:</P>
+				 <input  type="text" name="Lastname" value="" >
+				<p>TELEPHONE:</P>
+				<input  type="text" name="Telephone" value="" >
+				<br>
+				<p>EMAIL:</P>
+				 <input  type="text" name="Email" value="" >
+				<br>
+				<p>ADDRESS:</p>
+				 <input  type="text" name="Address" value="" >
+				 <br>
+				 <p>DATE APPLIED:</p>
+				 <input  type="text" name="Dateapplied" value="" >
+				 <br>
+				 <p>OWN CHILDREN:</p>
+				 <input  type="text" name="Biologicalchild" value="" >
+				 <br>
+				 <p>STAFF:</p>
+				 <input  type="text" name="Staffid" value="" >
+				 <br>
+				 <p>GENDER:</p>
+				 <input  type="text" name="Gender" value="" >
+				 <br>
+				 <p>AGE:</p>
+				 <input  type="text" name="Age" value="" >
+				 <br>
+				 <p>Form number:</p>
+				 <input  type="text" name="Formid" value="" >
+				 <br>
+				<button type="submit">GO</button>
+			</form>
+			<br>
+			</div>
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
 				
@@ -149,10 +188,11 @@
 								<th>Address</th>
 								<th>Date Applied</th>
 								<th>Biological Child</th>
+								<th>Staff</th>
 								<th>Gender</th>
 								<th>Age</th>
 								<th>Form Id</th>
-								<th>Staff</th>
+								
 								
 							</tr>
 						</thead>
@@ -169,17 +209,16 @@
 							<td><?=$al->getAddress()?></td>
 							<td><?=$al->getDateapplied()?></td>
 							<td><?=$al->getBiologicalchild()?></td>
+							<td><?=$staff1->getFirstname()?></td>
 							<td><?=$al->getGender()?></td>
 							<td><?=$al->getAge()?></td>
 
 							<td><?=$form->getDocumentid()?> <?=$form->getDocType()?></td>
 
-							<td><?=$staff1->getFirstname()?></td>
+							
 
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn">Edit</button>
 						        <button type="button" class="delete_data" id="<?=$al->getWaitingparentid()?>">
 						          Delete 
 						        </button>
@@ -200,6 +239,8 @@
 	</div>
 
 		</body>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/global.js"></script>
 		<script src="../js/waitparent.js"></script>
 
 		</html>

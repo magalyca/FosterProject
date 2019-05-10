@@ -131,6 +131,26 @@
 			</nav>
 
 
+			<div class="container" align="center">
+			<h5>PERSONAL DOCUMENTS UPDATE</h5>
+			<form action="" method="post" id="new-item">
+				<input type="hidden" name="Documentid" value="-1">
+				<p>CHILD NAME:</p>
+				<input type="text" name="Childid" value="">
+				<br><br>
+				<p>DOCUMENT TYPE;</P>
+				 <input  type="text" name="Doctype" value="" >
+				<br>
+				<p>DESCRIPTION:</p>
+				<input  type="text" name="Description" value="" >
+				<br>
+				<p>DATE ENTERED:</P>
+				<input  type="text" name="Dateentered" value="" >
+				<br>
+				<button type="submit">GO</button>
+			</form>
+			<br>
+			</div>
 
 			<main role="main" class="col-md-0 ml-sm-auto col-lg-10 px-0">
 				
@@ -165,9 +185,7 @@
 
 							
 								<td>
-								<button type="button" class="btn btn-default btn-sm">
-						          Edit 
-						        </button>
+								<button  class="btn btn-primary edit-btn">Edit</button>
 						        <button type="button" class="delete_data" id="<?=$al->getDocumentid()?>">
 						          Delete 
 						        </button>
@@ -188,6 +206,8 @@
 	</div>
 
 		</body>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/global.js"></script>
 		<script src="../js/personal.js"></script>
 
 		</html>

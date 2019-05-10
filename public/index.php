@@ -156,6 +156,20 @@ $app->group('/user', function () use ($app) {
 
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('medrec')]);
     });
+
+      $app->delete('/medRecord/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \MedicalrecordQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'medicalRecords.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('medRecord/{pnid}');
+
+
      $app->get('/personalDoc', function (Request $request, Response $response, array $args) {
 
         $all = \PersonaldocumentQuery::create()->find();
@@ -184,6 +198,19 @@ $app->group('/user', function () use ($app) {
 
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('personalDoc')]);
     });
+
+        $app->delete('/personalDoc/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \PersonaldocumentQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'personalDoc.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('personalDoc/{pnid}');
+
 
     $app->get('/bioParent', function (Request $request, Response $response, array $args) {
 
@@ -214,6 +241,18 @@ $app->group('/user', function () use ($app) {
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('bioParent')]);
     });
 
+     $app->delete('/bioParent/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \BiologicalparentQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'bioParent.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('bioParent/{pnid}');
+
     $app->get('/newParent', function (Request $request, Response $response, array $args) {
 
         $all = \NewparentQuery::create()->find();
@@ -243,6 +282,18 @@ $app->group('/user', function () use ($app) {
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('newParent')]);
     });
 
+    $app->delete('/newParent/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \NewparentQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'newParent.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('newParent/{pnid}');
+
     $app->get('/waitParent', function (Request $request, Response $response, array $args) {
 
         $all = \WaitingparentQuery::create()->find();
@@ -271,6 +322,18 @@ $app->group('/user', function () use ($app) {
 
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('waitParent')]);
     });
+
+     $app->delete('/waitParent/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \WaitingparentQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'waitingParent.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('waitParent/{pnid}');
 
     $app->get('/expense', function (Request $request, Response $response, array $args) {
 
@@ -326,6 +389,18 @@ $app->group('/user', function () use ($app) {
 
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('room')]);
     });
+
+    $app->delete('/room/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \RooomsQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'rooms.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('room/{pnid}');
 
      $app->get('/food', function (Request $request, Response $response, array $args) {
 
@@ -441,6 +516,20 @@ $app->group('/user', function () use ($app) {
 
         return $response->withJSON(['success'=>true, 'path'=>$this->router->pathFor('update')]);
     });
+
+         $app->delete('/update/{pnid}/',function($request, $response, $args){
+            //check that they are authorized to edit
+            //
+            $all = \StaffQuery::create()->findPk($args['pnid']);
+            $all->delete();
+            return $this->view->render($response,
+                'update.php',
+        ['router'=>$this->router, 'all'=>$all]
+        );
+                          
+        })->setName('update/{pnid}');
+
+
 })->add(function ($request, $response, $next) {
     if (currentUser() == null) {
         return $response->withRedirect($this->router->pathFor('home'));
